@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Engineering Cho Vibe Coding: Tối Ưu Context Token Với AI Dev Tools 2026</title>
+</head>
+<body>
+    <h1>Prompt Engineering Cho Vibe Coding: Tối Ưu Context Token Với AI Dev Tools 2026</h1>
+
+    <h2>Vibe coding không phải "cầu may" - nếu bạn biết dùng đúng</h2>
+
+    <p>
+        Mình nhớ lần đầu thử v0 của Vercel. Gõ vào: "tạo dashboard analytics cho e-commerce". <br>
+        Kết quả? Một đống component không liên kết, thiếu responsive, state management lung tung. Deploy lên <br>
+        thì UI trông như 2015.
+    </p>
+
+    <p>
+        Vấn đề không phải ở tool. Vấn đề là mình đang "vibe" mà không có structure.
+    </p>
+
+    <p>
+        <strong>Vibe coding</strong> là xu hướng 2025-2026 nơi developer mô tả ý tưởng bằng ngôn ngữ tự nhiên, để AI <br>
+        tạo code qua nhiều vòng lặp hội thoại. Nghe đơn giản. Nhưng chênh lệch giữa người dùng vibe <br>
+        coding hiệu quả và người "prompt rồi pray" nằm hoàn toàn ở prompt engineering - cụ thể là <br>
+        cách bạn quản lý context.
+    </p>
+
+    <p>
+        Bài này mình sẽ đi thẳng vào workflow thực chiến: từ system prompt đến context window <br>
+        management, áp dụng cho v0, Lovable và các AI coding agent phổ biến.
+    </p>
+
+    <img src="https://files.f8.edu.vn/f8-prod/blog_posts/13557/section_0_260405080900_69d1b62cb49579.52683367.png" alt="Vibe coding hiệu quả cần structure, không chỉ cần creativity">
+    <p>
+        <i>
+            Vibe coding hiệu quả cần structure, không chỉ cần creativity. Nguồn: F8 Blog
+        </i>
+    </p>
+
+    <hr>
+
+    <h2>Context engineering: lý do 90% vibe coding thất bại</h2>
+
+    <p>
+        AI coding agent không thiếu khả năng. Nó thiếu context.
+    </p>
+
+    <p>
+        Hãy nghĩ thế này: bạn thuê một senior dev mới vào. Dev đó giỏi. Nhưng ngày đầu bạn chỉ nói <br>
+        <i>"làm cái dashboard đẹp đẹp"</i>  và bỏ đi. Kết quả sẽ là... một dashboard nào đó. Đúng yêu cầu? Khó <br>
+        nói.
+    </p>
+
+    <p>
+        AI coding agent cũng vậy. Context window - tổng lượng token mà model có thể "nhớ" trong một <br>
+        session - quyết định AI hiểu được bao nhiêu về project của bạn. 100K tokens Cursor AI <br>
+        (<a href="https://localaimaster.com/tools/best-ai-coding-tools">localaimaster.com</a>) của các mô hình AI coding phổ biến hiện tại, nhưng dùng sai thì context lớn <br>
+        cũng vô nghĩa.
+    </p>
+
+    <img src="https://files.f8.edu.vn/f8-prod/blog_posts/13557/section_1_260405080930_69d1b64a006c82.43130695.png" alt="Token budget cạn kiệt = AI bắt đầu "quên" kiến trúc project của bạn">
+    <p>
+        <i>
+            Token budget cạn kiệt = AI bắt đầu "quên" kiến trúc project của bạn.
+        </i>
+    </p>
+
+    <p>
+        Có 3 lỗi context phổ biến nhất:
+    </p>
+
+    <p>
+        <b>Lỗi 1 - Front-load quá nhiều thứ vô nghĩa:</b> Paste toàn bộ codebase vào context mà không filter. <br>
+        AI mất tập trung vào boilerplate.
+    </p>
+
+    <p>
+        <b>Lỗi 2 - Thiếu architectural grounding:</b> Không nói rõ stack, pattern, constraints từ đầu. AI sẽ <br>
+        assume - và assume sai.
+    </p>
+
+    <p>
+        <b>Lỗi 3 - Không dùng system prompt:</b> Mỗi lần chat là một session mới, AI không biết "luật" của <br>
+        project bạn.
+    </p>
+
+    <p>
+        Giải pháp cho cả 3 lỗi trên là một <b>context engineering workflow</b> có cấu trúc - mình sẽ đi qua <br>
+        từng bước.
+    </p>
+
+    <hr>
+
+    <h2>Workflow 4 bước: từ vibe đến production-ready code</h2>
+
+    <p>
+        Mình dùng workflow này cho mọi project AI-assisted, từ landing page đến SaaS MVP. Nó không <br>
+        phải magic - nhưng nó giảm đáng kể số lần AI tạo ra code mình phải throw away.
+    </p>
+
+    <h3>Bước 1: Define stack bằng system prompt</h3>
+
+    <p>
+        Trước khi gõ bất kỳ feature request nào, hãy tạo một <b>system prompt</b> định nghĩa "luật" của <br>
+        project:
+    </p>
+
+    <p>
+        Bạn là senior React developer. Project dùng:
+    </p>
+    <ul>
+        <li>Next.js 15 App Router (KHÔNG dùng Pages Router)</li>
+        <li>Tailwind CSS v4 (KHÔNG dùng inline style)</li>
+        <li>TypeScript strict mode</li>
+        <li>Component phải modular, mỗi file < 200 dòng</li>
+        <li>Tên biến tiếng Anh, comment tiếng Việt khi cần giải thích logic</li>
+        <li>KHÔNG tự thêm dependencies nếu chưa được hỏi</li>
+    </ul>
+    </p>
+
+    <p>
+        Với v0 (Vercel), bạn paste system prompt này vào phần đầu của mỗi conversation mới. Với <br>
+        Lovable, nó có tính năng "project rules" riêng.
+    </p>
+
+    <h3>Bước 2: Architecture prompt - cái mà hầu hết dev bỏ qua</h3>
+
+    <p>
+        Trước khi build feature, prompt AI để nó <b>outline kiến trúc trước:</b> 
+    </p>
+
+    <p>
+        Mình cần build trang dashboard với:
+    </p>
+    <ul>
+        <li>Sidebar navigation (collapsible)</li>
+        <li>Main content area với 3 widget: revenue chart, orders table, user stats</li>
+        <li>Dark mode toggle</li>
+    </ul>
+    <p>
+        Đừng viết code ngay. Hãy liệt kê:
+    </p>
+    <ol>
+        <li>Component tree</li>
+        <li>State sẽ sống ở đâu</li>
+        <li>Data flow</li>
+        <li>Những dependency cần thiết</li>
+    </ol>
+
+    <p>
+        Bước này tốn thêm 1-2 phút nhưng giảm 60-70% số lần phải refactor.
+    </p>
+
+    <img src="https://files.f8.edu.vn/f8-prod/blog_posts/13557/section_2_260405080955_69d1b663aa0f01.15026083.png" alt="Outline kiến trúc trước khi code = ít vòng lặp refactor hơn">
+
+    <p>
+        <i>
+            Outline kiến trúc trước khi code = ít vòng lặp refactor hơn.
+        </i>
+    </p>
+
+    <h3>Bước 3: Generate và iterate theo chunk</h3>
+
+    <p>
+        Không prompt toàn bộ app một lần. Chia thành <b>chunk nhỏ theo component:</b> 
+    </p>
+
+    <p>
+        Bây giờ build Sidebar component trước. Yêu cầu:
+    </p>
+
+    <ul>
+        <li>Dùng shadcn/ui Sheet cho mobile</li>
+        <li>Desktop: fixed left, width 240px</li>
+        <li>Active state với Tailwind</li>
+        <li>Props: isOpen, onToggle, navItems[]</li>
+    </ul>
+
+    <p>
+        Sau khi nhận code, review và approve trước khi chuyển sang component tiếp theo. Đừng để AI <br>
+        build 10 components cùng lúc - bạn sẽ không kiểm soát được.
+    </p>
+
+    <h3>Bước 4: Verify với checklist</h3>
+
+    <p>
+        Trước khi merge code AI tạo ra:
+    </p>
+
+    <ul>
+        <li>[ ] Chạy TypeScript check (tsc --noEmit)</li>
+        <li>[ ] Test responsive trên 3 breakpoint</li>
+        <li>[ ] Kiểm tra accessibility cơ bản (contrast, alt text)</li>
+        <li>[ ] Review dependency mới có được thêm không</li>
+    </ul>
+
+    <p>
+        Bước này không skip được. Vibe coding không có nghĩa là blind trust.
+    </p>
+
+    <hr>
+
+    <h2>Dùng v0 và Lovable đúng cách: tips thực chiến</h2>
+
+    <p>
+        Hai tool này có cách tối ưu context khác nhau. Dùng nhầm cách là lãng phí token và thời gian.
+    </p>
+
+    <h3>v0 (Vercel)</h3>
+
+    <p>
+        v0 được train nhiều trên React + Tailwind + shadcn/ui - đây là điểm mạnh cần khai thác. Mấy tips <br>
+        mình tích lũy sau nhiều lần dùng:
+    </p>
+
+    <p>
+        <b>Nói rõ design system ngay từ đầu.</b> v0 sẽ tự chọn component nếu bạn không chỉ định. Thay vì <br>
+        <i>"tạo button"</i>, hãy dùng: <i>"Tạo button dùng shadcn/ui Button variant='outline', size='sm', có icon <br>
+        Lucide ArrowRight bên phải".</i> Kết quả khác nhau hoàn toàn.
+    </p>
+
+    <p>
+        <b>Dùng tính năng fork conversation.</b> Khi AI đi sai hướng, đừng cố "sửa" trong cùng thread - <br>
+        context đã bị contaminated. Fork ra một conversation mới với context sạch.
+    </p>
+
+    <p>
+        <b>Paste screenshot thay vì mô tả.</b> v0 có vision capability. Upload mockup Figma hoặc screenshot <br>
+        UI tham khảo, rồi chỉ cần nói "implement UI này dùng Tailwind". Nhanh gấp 3 lần so với mô tả <br>
+        bằng chữ.
+    </p>
+
+    <h3>Lovable</h3>
+
+    <p>
+        Lovable mạnh ở full-stack generation với Supabase integration. Cách dùng hiệu quả:
+    </p>
+
+    <p>
+        <b>Dùng tính năng "Project Knowledge"</b>để lưu system prompt một lần, apply cho mọi <br>
+        conversation. Đây là tương đương với .cursorrules file trong Cursor.
+    </p>
+
+    <p>
+        <b>Prompt theo user story, không theo technical spec.</b>Lovable xử lý tốt hơn khi bạn nói:<i>"Người <br>
+        dùng đăng nhập bằng email, thấy dashboard, click vào order thì xem chi tiết" </i>thay vì <i>"tạo auth flow với <br>
+        JWT, protected routes..."</i>
+    </p>
+
+    <img src="https://files.f8.edu.vn/f8-prod/blog_posts/13557/section_3_260405081037_69d1b68d0ede94.28643732.png" alt="v0 mạnh về UI components, Lovable mạnh về full-stack flow">
+
+    <p>
+        <i> 
+            v0 mạnh về UI components, Lovable mạnh về full-stack flow. Dùng đúng điểm mạnh của từng tool để tối ưu hiệu quả.
+        </i>
+    </p>
+
+    <p>
+        Nếu bạn đang học React từ đầu và muốn biết nền tảng trước khi dùng các tool này, khóa <a href="https://f8.edu.vn/courses/reactjs">Xây<br>
+        Dựng Website với ReactJS</a>  của F8 là điểm xuất phát tốt - AI tool sẽ output code React, bạn cần <br>
+        hiểu để review được.
+    </p>
+
+    <hr>
+
+    <h2>Hybrid approach: vibe coding + TDD để không "prompt rồi pray"</h2>
+
+    <p>
+        Phê bình lớn nhất với vibe coding - và mình đồng ý một phần - là nó dễ tạo ra code hoạt động <br>
+        nhưng không maintainable. Code pass visual test nhưng edge case thì vỡ.
+    </p>
+
+    <p>
+        Giải pháp là kết hợp với <b>Test Driven Development (TDD)</b> - cách các team engineering ở các <br>
+        công ty lớn đang dùng AI agent.
+    </p>
+
+    <p>
+        Workflow hybrid trông như thế này:
+    </p>
+
+    <pre>
+        // Prompt bước 1: viết test trước
+"Viết test cho function calculateDiscount:
+- Input: price (number), userTier ('basic'|'pro'|'enterprise')
+- Output: discounted price
+- Edge cases: price âm, price = 0, userTier không hợp lệ
+Dùng Vitest."
+
+// Prompt bước 2: implement để pass test
+"Bây giờ viết function calculateDiscount
+để pass tất cả test trên.
+Không thay đổi test file."
+    </pre>
+
+    <p>
+        Bằng cách để AI viết test trước, bạn buộc nó phải suy nghĩ về edge cases - thứ vibe coding <br>
+        thường bỏ qua. Và khi code được generate, bạn có ground truth để verify.
+    </p>
+
+    <img src="https://files.f8.edu.vn/f8-prod/blog_posts/13557/section_4_260405081111_69d1b6af7f0434.02112996.png" alt="AI viết test trước = bạn có contract rõ ràng để verify output">
+
+    <p>
+        <i>AI viết test trước = bạn có contract rõ ràng để verify output</i>
+    </p>
+
+    <p>
+        Cách tiếp cận này, theo kinh nghiệm của mình và cộng đồng dev dùng AI agent, có thể đẩy intent <br>
+        accuracy lên trên 80% so với thuần vibe coding không có verification. Điều này align với những gì <br>
+        community AI-assisted engineering đang quan sát.
+    </p>
+
+    <p>
+        Một điểm thực tế: không phải project nào cũng cần TDD đầy đủ. Landing page, prototype nhanh <br>
+        - vibe thuần là đủ. Nhưng nếu bạn build SaaS, feature production - hybrid approach là bắt buộc.
+    </p>
+
+    <hr>
+
+    <h2>Template system prompt thực chiến để dùng ngay</h2>
+    
+    <p>
+        Mình để đây một số system prompt template đã test qua nhiều project. Copy, điều chỉnh theo <br>
+        stack của bạn.
+    </p>
+
+    <h3>Template cho Next.js App Router project</h3>
+
+    <pre>
+        Bạn là senior Next.js developer với 5 năm kinh nghiệm.
+
+STACK BẮT BUỘC:
+- Next.js 15 với App Router
+- TypeScript strict (noImplicitAny: true)
+- Tailwind CSS v4
+- shadcn/ui cho UI components
+- Zustand cho global state
+
+QUY TẮC CODE:
+- Mỗi component file tối đa 150 dòng
+- Tách logic ra custom hooks nếu > 30 dòng
+- Luôn handle loading + error state
+- Mobile-first responsive
+- KHÔNG dùng 'any' type
+- KHÔNG tạo file mới nếu chưa được yêu cầu
+
+KHI KHÔNG CHẮC: Hỏi thay vì tự assume.
+    </pre>
+
+    <h3>Template cho Lovable full-stack</h3>
+
+    <pre>
+        Project: [Tên app]
+Mô tả: [1-2 câu về app làm gì]
+
+STACK:
+- Frontend: React + Tailwind
+- Backend: Supabase (auth + database + storage)
+- Deploy: Lovable built-in
+
+NGƯỜI DÙNG:
+[Mô tả persona người dùng chính]
+
+CHỨC NĂNG ƯU TIÊN:
+1. [Feature 1 - quan trọng nhất]
+2. [Feature 2]
+3. [Feature 3]
+
+RANG BUỘC:
+- [Constraint kỹ thuật]
+- [Constraint business]
+    </pre>
+
+    <img src="https://files.f8.edu.vn/f8-prod/blog_posts/13557/section_5_260405081149_69d1b6d5e190a8.98704071.png" alt="Template có cấu trúc giúp AI không phải đoán - output nhất quán hơn">
+    
+    <p>
+        <i>Template có cấu trúc giúp AI không phải đoán - output nhất quán hơn</i>
+    </p>
+
+    <p>
+        Tải template đầy đủ (bao gồm checklist verify và prompt chain) tại đây: <a href="https://files.f8.edu.vn/f8-prod/blog_posts/13557/vibe-coding-system-prompt-templates.md">Tải bộ System Prompt<br>
+        Templates</a> 
+    </p>
+
+    <p>
+        Takeaways:
+    </p>
+
+    <ul>
+        <li>System prompt là foundation, không phải optional</li>
+        <li>Context engineering = quyết định AI nhớ cái gì, quên cái gì</li>
+        <li>Chunk prompt theo component, không phải theo app</li>
+        <li>Hybrid TDD + vibe = reliable hơn thuần vibe</li>
+    </ul>
+
+    <p>
+        Bước tiếp theo: chọn 1 project nhỏ, áp dụng workflow 4 bước, so sánh với cách cũ của bạn. Kết <br>
+        quả sẽ tự nói lên tất cả. Drop comment nếu bạn có template nào hay - mình sẽ update vào bài.
+    </p>
+
+    <h3>Bài đăng cùng tác giả</h3>
+
+    <ul>
+        <li>
+            <a href="https://f8.edu.vn/blog/xu-huong-thiet-ke-website-2026-ai-ca-nhan-hoa-va-tuong-tac-3d-dinh-cao">Thiết Kế Web 2026: AI Cá Nhân Hóa & 3D Tương Tác Thực Chiến</a>
+        </li>
+
+        <li>
+            <a href="https://f8.edu.vn/blog/ai-dang-thay-doi-phat-trien-web-2026-tu-copilot-den-chatbot-tu-dong">AI Đang Thay Đổi Phát Triển Web 2026: Từ Copilot đến Chatbot Tự Động</a>
+        </li>
+
+        <li>
+            <a href="https://f8.edu.vn/blog/cap-nhat-google-core-february-2026-toi-uu-discover-cho-developer-viet">Cập Nhật Google Core February 2026: Tối Ưu Discover cho Developer Việt</a>
+        </li>
+
+        <li>
+            <a href="https://f8.edu.vn/blog/progressive-web-apps-pwa-2026-xay-dung-app-web-sieu-nhanh-cho-mobile-viet">Progressive Web Apps (PWA) 2026: Xây Dựng App Web Siêu Nhanh cho Mobile Việt</a>
+        </li>
+            
+        <li>
+            <a href="https://f8.edu.vn/blog/motion-ui-micro-interactions-bi-quyet-giu-chan-nguoi-dung-tren-web-2026">Motion UI & Micro Interactions: Bí Quyết Giữ Chân Người Dùng Trên Web 2026</a>
+        </li>
+    </ul>
+
+</body>
+
+</html>
