@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ES2025 JavaScript</title>
 </head>
-<img>
+
+<body>
+    <img src="https://files.f8.edu.vn/f8-prod/blog_posts/13485/section_0_260323080636_69c0921c0cf292.71514803.png" alt="ES2025 tập trung vào iterator, set, và async - không phải pipeline operator như nhiều bài viết nhầm">
     <h1>ES2025 JavaScript: Patterns và Libraries Hot Nhất Cho Developer Việt 2026</h1>
+
     <h2>ES2025 ra mắt - cái gì thật sự vào spec?</h2>
+
     <p>
         Tháng 6/2025, TC39 chính thức công bố ECMAScript 2025 (ES16). Nếu bạn hay follow Twitter/X <br> 
         dev community, chắc nghe nhiều về pipeline operator hay Temporal API - nhưng cả hai vẫn chưa <br>
@@ -125,8 +129,8 @@ const newMessages = socketMessages.difference(cachedMessages);
 
 <pre>
     // Bug tiềm ẩn: nếu getUser() throw sync, lỗi không bị catch!
-async function loadProfile(id) {
-  return getUser(id) // sync function, throw không bị catch bởi .catch()
+    async function loadProfile(id) {
+    return getUser(id) // sync function, throw không bị catch bởi .catch()
     .then(user => fetchDetails(user));
 }
 </pre>
@@ -240,11 +244,11 @@ liveData$.subscribe(messages => updateDashboard(messages));
     import { create } from 'zustand';
 
 const useChatStore = create((set, get) => ({
-  messages: [],
-  connected: false,
-  
+    messages: [],
+    connected: false,
+    
   // ES2025 Promise.try trong action
-  connectSocket: async (url) => {
+    connectSocket: async (url) => {
     await Promise.try(async () => {
     const ws = new WebSocket(url);
     set({ connected: true });
@@ -258,7 +262,7 @@ const useChatStore = create((set, get) => ({
 
 // Trong component
 function ChatApp() {
-  const { messages, connectSocket } = useChatStore();
+    const { messages, connectSocket } = useChatStore();
   // ...
 }
 </pre>
@@ -407,6 +411,6 @@ const useStockStore = create((set, get) => ({
     </li>
 </ul>
 
-
 </body>
+
 </html>

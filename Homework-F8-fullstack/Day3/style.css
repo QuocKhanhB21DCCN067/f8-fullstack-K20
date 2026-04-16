@@ -1,0 +1,179 @@
+/* Bài 1 */
+.main-nav a {
+    color: #1d4ed8;
+}
+
+.main-nav > ul > li {
+    background-color: #f1f5f9;
+}
+
+h2 + p {
+    color: #64748b;
+}
+
+h2 > p {
+    color: #0f172a;
+}
+
+.author > a {
+    color: #f97316;
+}
+/* Bài 2 */
+.post {
+    .post-title {
+        color: #0f172a;
+    }
+
+    &:hover {
+        background-color: #f8fafc;
+
+        .post-title {
+            color: #2563eb;
+        }
+    }
+}
+
+.featured {
+    background-color: #fefce8;
+}
+/* Bài 3 */
+
+.post-content {
+    a:link {
+        color: #2563eb;
+    }
+
+    a:visited {
+        color: #9333ea;
+    }
+
+    a:hover {
+        color: #1e40af;
+    }
+
+    a:active {
+        color: #1e3a8a;
+    }
+}
+
+.btn {
+    background-color: #2563eb;
+    color: white;
+
+    &:hover {
+        background-color: #3b82f6;
+    }
+
+    &:active {
+        background-color: #1d4ed8;
+    }
+}
+
+.widget-newsletter button {
+        background-color: #94a3b8;
+        color: #cbd5e1;
+    
+}
+
+input {
+    background-color: #eff6ff;
+}
+
+/* Bài 4 */
+
+.comparison-table tbody > tr:nth-child(odd) {
+    background-color:#f8fafc ;
+}
+
+.comparison-table tbody > tr:nth-child(even) {
+    background-color: white ;
+}
+
+.comparison-table thead > tr:first-child {
+    background-color: #0f172a;
+    color: white;
+}
+
+.comparison-table tbody tr:last-child {
+    background-color: #dbeafe;
+}
+
+.steps li {
+    &:first-child {
+        color: #16a34a;
+    }
+
+    &:last-child {
+        color: #dc2626;
+    }
+
+    &:nth-child(3) {
+        color: #fef3c7;
+    }
+}
+
+.widget:not(:last-child) {
+    background-color: white;
+}
+
+/* Bài 5 */
+
+.lead {
+    &::first-line {
+        color: #0f172a;
+    }
+
+    &::first-letter {
+        color: #2563eb;
+    }
+}
+
+.quote {
+    &::before {
+        content: "“";
+        color: #cbd5e1;
+    }
+
+    &::after {
+        content: "”";
+        color: #cbd5e1;
+    }
+}
+
+.steps ::marker {
+    color: #2563eb;
+}
+
+::selection {
+    background-color: #bfdbfe;
+    color: #0f172a;
+}
+
+.badge::before {
+    content: "* ";
+    color: #ef4444;
+}
+
+/* Bài 6 */
+
+input[required] {
+    background-color: #fffbeb;
+}
+
+[class*="btn"] {
+    background-color: #e2e8f0;
+}
+
+[lang|="vi"] {
+    color: #0f172a;
+}
+
+.comparison-table tr[data-priority="high"] {
+    background-color: #fee2e2 !important;
+}
+
+
+
+
+
+

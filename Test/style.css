@@ -1,0 +1,15 @@
+.box-3 ~.box {
+    color: green;
+}
+li:nth-child(even) {
+    color: red;
+}
+li:nth-child(5) {
+    color: violet;
+}
+ul ul {
+    color: grey;
+}
+
+
+
