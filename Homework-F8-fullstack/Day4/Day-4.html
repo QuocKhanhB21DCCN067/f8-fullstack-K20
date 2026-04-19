@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trung tâm cấu hình giao diện (Demo)</title>
+    <style>
+      .box-title {
+        padding: 2px;
+        background-color: orangered;
+        color: white;
+        font-size: 15px;
+      }
+      /* Màu ô radio */
+      #light:checked + .pick-light {
+        background-color: bisque;
+      }
+
+      #dark:checked + .pick-dark {
+        background-color: grey;
+      }
+
+      #red:checked + .pick-red {
+        background-color: #fee2e2;
+      }
+
+      #blue:checked + .pick-blue {
+        background-color: #dbeafe;
+      }
+
+      #green:checked + .pick-green {
+        background-color: #dcfce7;
+      }
+
+      #vi:checked + .pick-vi {
+        background-color: #bbf7d0;
+      }
+
+      #en:checked + .pick-en {
+        background-color: #bfdbfe;
+      }
+
+      #option-1:checked + .pick-option-1 {
+        background-color: #fef3c7;
+        color: #92400e;
+      }
+
+      #option-2:checked + .pick-option-2 {
+        background-color: #bbf7d0;
+        color: #15803d;
+      }
+
+      #option-3:checked + .pick-option-3 {
+        background-color: #fee2e2;
+        color: #b91c1c;
+      }
+
+      /* Box trạng thái */
+
+      .box {
+        padding: 3px;
+        margin: 10px;
+        opacity: 40%;
+        background-color: grey;
+      }
+
+      #light:checked ~ .box-light {
+        opacity: 100%;
+        color: #8b5e00;
+        background-color: #fff8cc;
+      }
+
+      #dark:checked ~ .box-dark {
+        opacity: 100%;
+        color: #111827;
+        background-color: #f9fafb;
+      }
+
+      #red:checked ~ .box-red {
+        opacity: 100%;
+        color: #991b1b;
+        background-color: #fee2e2;
+      }
+
+      #blue:checked ~ .box-blue {
+        opacity: 100%;
+        color: #1d4ed8;
+        background-color: #dbeafe;
+      }
+
+      #green:checked ~ .box-green {
+        opacity: 100%;
+        color: #166534;
+        background-color: #dcfce7;
+      }
+
+      #vi:checked ~ .box-vi {
+        opacity: 100%;
+        color: #166534;
+        background-color: #bbf7d0;
+      }
+
+      #en:checked ~ .box-en {
+        opacity: 100%;
+        color: #1d4ed8;
+        background-color: #bfdbfe;
+      }
+
+      #option-1:checked ~ .box-option-1 {
+        opacity: 100%;
+        color: #92400e;
+        background-color: #fef3c7;
+      }
+
+      #option-2:checked ~ .box-option-2 {
+        opacity: 100%;
+        color: #15803d;
+        background-color: #bbf7d0;
+      }
+
+      #option-3:checked ~ .box-option-3 {
+        opacity: 100%;
+        color: #b91c1c;
+        background-color: #fee2e2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-title">
+      <h1>Trung tâm cấu hình giao diện (Demo)</h1>
+    </div>
+
+    <p>Chọn giao diện (Theme):</p>
+
+    <input type="radio" name="theme" id="light" />
+    <label for="dark" class="pick-light">Light</label>
+
+    <input type="radio" name="theme" id="dark" />
+    <label for="dark" class="pick-dark">Dark</label>
+
+    <p>Chọn màu chủ đạo (Color):</p>
+
+    <input type="radio" name="color" id="red" />
+    <label for="red" class="pick-red">Red</label>
+
+    <input type="radio" name="color" id="blue" />
+    <label for="blue" class="pick-blue">Blue</label>
+
+    <input type="radio" name="color" id="green" />
+    <label for="green" class="pick-green">Green</label>
+
+    <p>Chọn ngôn ngữ (Language):</p>
+
+    <input type="radio" name="language" id="vi" />
+    <label for="vi" class="pick-vi">VI</label>
+
+    <input type="radio" name="language" id="en" />
+    <label for="en" class="pick-en">EN</label>
+
+    <p>Tuỳ chọn bổ sung (Options - Checkbox):</p>
+
+    <input type="checkbox" name="Options" id="option-1" />
+    <label for="option-1" class="pick-option-1">Hiển thị mô tả nâng cao</label>
+
+    <input type="checkbox" name="Options" id="option-2" />
+    <label for="option-2" class="pick-option-2">Bật chế độ Eco</label>
+
+    <input type="checkbox" name="Options" id="option-3" />
+    <label for="option-3" class="pick-option-3"
+      >Hiển thị cảnh báo quan trọng</label
+    >
+
+    <div class="box box-light">
+      <p>Theme Light: Giao diện sáng, chữ đen.</p>
+    </div>
+
+    <div class="box box-dark">
+      <p>Theme Dark: Giao diện tối, chữ sáng.</p>
+    </div>
+
+    <div class="box box-red">
+      <p>Màu Red: được nhấn mạnh khi chọn Red.</p>
+    </div>
+
+    <div class="box box-blue">
+      <p>Màu Blue: được nhấn mạnh khi chọn Blue.</p>
+    </div>
+
+    <div class="box box-green">
+      <p>Màu Green: được nhấn mạnh khi chọn Green.</p>
+    </div>
+
+    <div class="box box-vi">
+      <p>[VI] Xin chào bạn! Khi chọn VI, dòng này rõ hơn.</p>
+    </div>
+
+    <div class="box box-en">
+      <p>[EN] Hello, world! Khi chọn EN, dòng này rõ hơn.</p>
+    </div>
+
+    <div class="box box-option-1">
+      <p>
+        Mô tả nâng cao: giải thích kỹ hơn về cách các lựa chọn đang ảnh hưởng
+        giao diện.
+      </p>
+    </div>
+
+    <div class="box box-option-2">
+      <p>Chế độ Eco: mô phỏng trạng thái tiết kiệm tài nguyên cho giao diện.</p>
+    </div>
+
+    <div class="box box-option-3">
+      <p>Cảnh báo quan trọng: khu vực dùng để nhấn mạnh thông tin hệ thống.</p>
+    </div>
+  </body>
+</html>
