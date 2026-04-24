@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day-5</title>
+    <style>
+      .square {
+        border-color: red;
+        border-style: solid;
+        width: 100px;
+        height: 100px;
+        margin-top: 20px;
+        display: inline-block;
+        margin-right: 50px;
+      }
+
+      .rectangle {
+        border-color: skyblue;
+        border-style: solid;
+        width: 150px;
+        height: 70px;
+        display: inline-block;
+        margin-right: 50px;
+      }
+
+      .triangle-up {
+        display: inline-block;
+        border-width: 50px;
+        border-color: transparent;
+        border-bottom: 100px #6dc978;
+        border-top: 0px;
+        border-style: solid;
+        width: 0px;
+        margin-right: 50px;
+      }
+
+      .triagle-down {
+        display: inline-block;
+        border-width: 50px;
+        border-color: transparent;
+        border-bottom: 0px;
+        border-top: 100px #e3a031;
+        border-style: solid;
+        width: 0px;
+        margin-right: 50px;
+      }
+
+      .triagle-left {
+        display: inline-block;
+        border-width: 50px;
+        border-color: transparent;
+        border-right: 100px #905cb2;
+        border-style: solid;
+        margin-right: 50px;
+      }
+
+      .triagle-right {
+        display: inline-block;
+        border-width: 50px;
+        border-color: transparent;
+        border-left: 100px #d48332;
+        border-style: solid;
+        margin-right: 50px;
+      }
+
+      .trapezium {
+        display: inline-block;
+        border-color: transparent transparent #61b99d transparent;
+        border-style: solid;
+        width: 100px;
+        border-width: 0 30px 70px 30px;
+      }
+
+      .name-square {
+        display: inline-block;
+        margin: 10px;
+        margin-top: 0px;
+      }
+
+      .name-rectangle {
+        display: inline-block;
+        margin: 60px;
+        margin-top: 0px;
+      }
+
+      .name-triangle-up {
+        display: inline-block;
+        margin: 30px;
+        margin-top: 0px;
+      }
+
+      .name-triangle-down {
+        display: inline-block;
+        margin: 20px;
+        margin-top: 0px;
+      }
+
+      .name-triangle-left {
+        display: inline-block;
+        margin: 60px;
+        margin-top: 0px;
+      }
+
+      .name-triangle-right {
+        display: inline-block;
+        margin: 5px;
+        margin-top: 0px;
+      }
+
+      .name-trapezium {
+        display: inline-block;
+        margin: 100px;
+        margin-top: 0px;
+      }
+
+      .triangle-lagre {
+        display: inline-block;
+        border-color: #3a485d transparent;
+        border-style: solid;
+        border-width: 50px 80px 50px 80px;
+        border-top: 0;
+        margin-right: 50px;
+      }
+
+      .pointed-triangle {
+        display: inline-block;
+        border-style: solid;
+        border-color: #ad4430 transparent;
+        border-width: 0 50px 200px 50px;
+        margin-right: 50px;
+      }
+
+      .isosceles-triangle {
+        display: inline-block;
+        border-style: solid;
+        border-color: #c05c19 transparent;
+        border-width: 0 50px 70px 50px;
+        margin-right: 50px;
+      }
+
+      .right-arrow {
+        display: inline-block;
+        border-style: solid;
+        border-color: transparent transparent transparent #529e86;
+        border-width: 40px 0px 50px 90px;
+        margin-right: 50px;
+      }
+
+      .left-arrow {
+        display: inline-block;
+        border-style: solid;
+        border-color: transparent #8348a9 transparent transparent;
+        border-width: 40px 90px 50px 0px;
+        margin-right: 50px;
+      }
+
+      .ribbon {
+        display: inline-block;
+        border-style: solid;
+        border-color: #d15841 transparent #d15841 #d15841;
+        border-width: 50px 60px 50px 140px;
+      }
+
+      .name-triangle-lagre {
+        display: inline-block;
+        margin-top: 0;
+        margin-right: 80px;
+        margin-left: 20px;
+      }
+
+      .name-pointed-triangle {
+        display: inline-block;
+        margin-top: 0;
+        margin-right: 40px;
+      }
+
+      .name-isosceles-triangle {
+        display: inline-block;
+        margin-top: 0;
+        margin-right: 40px;
+      }
+
+      .name-right-arrow {
+        display: inline-block;
+        margin-top: 0px;
+        margin-right: 50px;
+      }
+
+      .name-left-arrow {
+        display: inline-block;
+        margin-top: 0px;
+        margin-right: 70px;
+      }
+
+      .name-ribbon {
+        display: inline-block;
+        margin-top: 0px;
+      }
+
+      .F8 {
+        display: inline-block;
+        margin-top: 80px;
+      }
+
+      .letter-F {
+        display: inline-block;
+        margin-right: 60px;
+        margin-left: 80px;
+      }
+
+      .number-8 {
+        display: inline-block;
+      }
+
+      .F {
+        border-color: #d15841 transparent #d15841 #d15841;
+        border-style: solid;
+        width: 150px;
+        height: 100px;
+        border-width: 50px 0px 0px 50px;
+      }
+
+      .F1 {
+        border-color: #d15841;
+        border-style: solid;
+        width: 170px;
+        height: 0px;
+        border-width: 50px 0 0 30px;
+      }
+
+      .F2 {
+        border-color: #d15841;
+        border-style: solid;
+        width: 50px;
+        height: 0px;
+        border-width: 132px 0 0 0;
+      }
+
+      .up-8 {
+        border-color: #d15841;
+        border-style: solid;
+        width: 150px;
+        height: 111px;
+        border-width: 40px 40px 20px 40px;
+      }
+
+      .down-8 {
+        border-color: #d15841;
+        border-style: solid;
+        width: 150px;
+        height: 100px;
+        border-width: 20px 40px 40px 40px;
+      }
+
+      .line-F8 {
+        display: block;
+        margin-left: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Các hình có thể tạo được với Border</h1>
+
+    <div class="line-1">
+      <div class="square"></div>
+      <div class="rectangle"></div>
+      <div class="triangle-up"></div>
+      <div class="triagle-down"></div>
+      <div class="triagle-left"></div>
+      <div class="triagle-right"></div>
+      <div class="trapezium"></div>
+    </div>
+
+    <div class="name-line-1">
+      <div class="name-square">
+        <p>1.Hình vuông</p>
+      </div>
+
+      <div class="name-rectangle">
+        <p>2.Hình chữ nhật</p>
+      </div>
+
+      <div class="name-triangle-up">
+        <p>3.Tam giác lên</p>
+      </div>
+
+      <div class="name-triangle-down">
+        <p>4.Tam giác xuống</p>
+      </div>
+
+      <div class="name-triangle-left">
+        <p>5.Tam giác trái</p>
+      </div>
+
+      <div class="name-triangle-right">
+        <p>6.Tam giác phải</p>
+      </div>
+
+      <div class="name-trapezium">
+        <p>7. Hình thang cân</p>
+      </div>
+    </div>
+
+    <div class="line-2">
+      <div class="triangle-lagre"></div>
+      <div class="pointed-triangle"></div>
+      <div class="isosceles-triangle"></div>
+      <div class="right-arrow"></div>
+      <div class="left-arrow"></div>
+      <div class="ribbon"></div>
+    </div>
+
+    <div class="name-line-2">
+      <div class="name-triangle-lagre">
+        <p>8. Tam giác rộng</p>
+      </div>
+
+      <div class="name-pointed-triangle">
+        <p>9. Tam giác nhọn</p>
+      </div>
+
+      <div class="name-isosceles-triangle">
+        <p>10. Tam giác cân</p>
+      </div>
+
+      <div class="name-right-arrow">
+        <p>11. Mũi tên phải</p>
+      </div>
+
+      <div class="name-left-arrow">
+        <p>12. Mũi tên trái</p>
+      </div>
+
+      <div class="name-ribbon">
+        <p>13. Ribbon/lá cờ</p>
+      </div>
+    </div>
+
+    <div class="F8">
+      <div class="letter-F">
+        <div class="F"></div>
+        <div class="F1"></div>
+        <div class="F2"></div>
+      </div>
+
+      <div class="number-8">
+        <div class="up-8"></div>
+        <div class="down-8"></div>
+      </div>
+    </div>
+
+    <div class="line-F8">
+      <p>14. F8</p>
+    </div>
+  </body>
+</html>

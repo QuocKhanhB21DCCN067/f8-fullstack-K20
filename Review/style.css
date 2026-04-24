@@ -1,0 +1,9 @@
+.card {
+    border: 1px solid #ccc;
+    width: 250px;
+    padding: 8px;
+}
+
+.price-area {
+    display: inline-block;
+}
