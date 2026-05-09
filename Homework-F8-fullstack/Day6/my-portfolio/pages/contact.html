@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"/>
+  </head>
+<body>
+    <header>
+        <img src="/Homework-F8-fullstack/Day6/my-portfolio/images/Khánh portfolio-logo.png" width="150" alt="logo">
+      <div class="navigation-menu">
+        <ul class="menu">
+          <li>
+            <a href="../index.html"><i class="mdi mdi-home">Home</i></a>
+          </li>
+          <li>
+            <a href="about.html"><i class="mdi mdi-account">About</i></a>
+          </li>
+          <li>
+            <a href="skills.html"><i class="mdi mdi-lightbulb">Skills</i></a>
+          </li>
+          <li>
+            <a href="projects.html"><i class="mdi mdi-folder">Projects</i></a>
+          </li>
+          <li>
+            <a href="blog.html"><i class="mdi mdi-post">Blog</i></a>
+          </li>
+          <li>
+            <a href="contact.html"><i class="mdi mdi-email">Contact</i></a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <hr>
+
+    <h1>Liên hệ</h1>
+
+    <section class="form">
+
+      <h2>Điền thông tin</h2>
+
+      <form action="#" method="post">
+
+        <fieldset> 
+
+          <legend>Thông tin cá nhân</legend>
+
+        <label for="fullname">Họ và tên: </label>
+        <input type="text" required minlength="2">
+
+        <label for="email">Email: </label>
+        <input type="email" required>
+
+        <label for="phone">Số điện thoại: </label>
+        <input type="tel" pattern="[0-9]{10,11}">
+
+        </fieldset>
+
+
+
+        <br>
+
+        <fieldset>
+
+          <legend>Chọn chủ đề</legend>
+
+        <select name="question" id="question">
+          <option value="">-- Chọn chủ đề --</option>
+          <option value="project">Hỏi về dự án</option>
+          <option value="cooperate">Hợp tác</option>
+          <option value="recruitment">Tuyển dụng</option>
+          <option value="other">Khác</option>
+        </select>
+
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+
+          <legend>Chọn mức độ ưu tiên</legend>
+
+        <label for="priority">
+          <input type="radio" name="priority" value="low">Thấp
+          <input type="radio" name="priority" value="medium"> Trung bình
+          <input type="radio" name="priority" value="high">Cao
+        </label>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+
+          <legend>Chọn dịch vụ quan tâm</legend>
+
+        <label for="service">
+          <input type="checkbox">Web Development
+          <input type="checkbox">Mobile App
+          <input type="checkbox">UI/UX Design
+          <input type="checkbox">Consulting
+        </label>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+
+          <legend>Tin nhắn</legend>
+
+        <textarea name="message" required rows="6" minlength="10" placeholder="Nhập tin nhắn của bạn"></textarea>
+        </fieldset>
+
+        <br>
+
+        <label for="rating">Đánh giá website này: 1 - 5 sao</label>
+        <input type="range" min="1" max="5">
+
+        <br>
+
+        <fieldset>
+
+          <legend>File đính kèm</legend>
+
+        <label for="file">Đính kèm CV hoặc tài liệu (nếu có)</label>
+        <input type="file" accept=".pdf, .docx, .doc">
+        </fieldset>
+
+
+
+        <br>
+
+        <button type="submit" >Gửi tin nhắn</button>
+        <button type="reset">Xoá form</button>
+      </form> 
+    </section>
+
+    <hr>
+
+    <section class="address">
+      <h2>Thông tin liên hệ</h2>
+      <address>
+        <b>Email:</b> <a href="mailto:khanh.tran.dev@gmail.com">khanh.tran.dev@gmail.com</a> <br>
+        <b>Điện thoại:</b> <a href="tel:098 765 4321">098 765 4321</a> <br>
+        <b>Địa chỉ:</b> Khu Công nghệ phần mềm, ĐHQG TP.HCM, Linh Trung, Thủ Đức. <br>
+        <a href="">
+            <span class="mdi mdi-facebook">Tran Quoc Khanh</span>
+        </a>
+        <br>
+        <a href="">
+            <span class="mdi mdi-instagram">Tran Quoc Khanh</span>
+        </a>
+        <br>
+        <a href="">
+        <span class="mdi mdi-twitter">Tran Quoc Khanh</span>
+        </a>
+        <br>
+        <a href="">
+            <span class="mdi mdi-github">Tran Quoc Khanh</span>
+        </a>
+        <br>
+        <a href="">
+            <span class="mdi mdi-linkedin">Tran Quoc Khanh</span>
+        </a>
+      </address>
+    </section>
+
+    <hr>
+
+    <section class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.292401303918!2d105.78484157605149!3d20.980912980656466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135accdd8a1ad71%3A0xa2f9b16036648187!2zSOG7jWMgdmnhu4duIEPDtG5nIG5naOG7hyBCxrB1IGNow61uaCB2aeG7hW4gdGjDtG5n!5e0!3m2!1svi!2s!4v1778351334009!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <hr>
+
+    <section class="work-time">
+      <h2>Thời gian làm việc</h2>
+      <p>
+        Các ngày trong tuần trừ thứ 7, CN
+      </p>
+
+      <p>
+        Thời gian mở cửa: <time datetime="8:00">8:00 sáng</time>
+      </p>
+
+      <p>
+        Thời gian đóng cửa: <time datetime="18:00">18:00 tối</time>
+      </p>
+    </section>
+
+    <hr>
+
+    <footer>
+        <p>
+            <strong>
+                <sup>©</sup>2026 Bản quyền thuộc về Trần Quốc Khánh. All rights reserved.
+            </strong>
+        </p>
+
+        <a href="">
+            <span class="mdi mdi-facebook">Tran Quoc Khanh</span>
+        </a>
+
+        <br>
+
+        <a href="">
+            <span class="mdi mdi-instagram">Tran Quoc Khanh</span>
+        </a>
+
+        <br>
+
+        <a href="">
+        <span class="mdi mdi-twitter">Tran Quoc Khanh</span>
+        </a>
+
+        <br>
+
+        <a href="">
+            <span class="mdi mdi-github">Tran Quoc Khanh</span>
+        </a>
+
+        <br>
+
+        <a href="">
+            <span class="mdi mdi-linkedin">Tran Quoc Khanh</span>
+        </a>
+
+        <br>
+
+        <a href="#top">Lên đầu trang</a>
+    </footer>
+</body>
+</html>

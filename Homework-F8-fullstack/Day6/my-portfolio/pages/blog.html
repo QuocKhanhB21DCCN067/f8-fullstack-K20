@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"/>
+  </head>
+<body>
+    <header>
+    <img src="/Homework-F8-fullstack/Day6/my-portfolio/images/Khánh portfolio-logo.png" width="150" alt="logo">
+      <div class="navigation-menu">
+        <ul class="menu">
+          <li>
+            <a href="../index.html"><i class="mdi mdi-home">Home</i></a>
+          </li>
+          <li>
+            <a href="about.html"><i class="mdi mdi-account">About</i></a>
+          </li>
+          <li>
+            <a href="skills.html"><i class="mdi mdi-lightbulb">Skills</i></a>
+          </li>
+          <li>
+            <a href="projects.html"><i class="mdi mdi-folder">Projects</i></a>
+          </li>
+          <li>
+            <a href="blog.html"><i class="mdi mdi-post">Blog</i></a>
+          </li>
+          <li>
+            <a href="contact.html"><i class="mdi mdi-email">Contact</i></a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <hr>
+
+    <section class="Header">
+        <h1>Chuẩn Hóa Tên Và Email</h1>
+        <time datetime="9/5/2026">9/5/2026</time>
+        <cite> - Trần Quốc Khánh</cite>
+
+        <p>
+            Chuẩn hóa tên là một công việc thường gặp khi xử lý chuỗi, trong bài viết này mình sẽ hướng dẫn các bạn phương pháp để bạn có thể chuẩn hóa tên theo nhiều yêu cầu khác nhau
+            <a href="https://blog.28tech.com.vn/c-chuan-hoa-ten-va-email" target="_blank" rel="noopener noreferrer">Tham khảo tại đây</a>
+        </p>
+
+        <p>
+            <b>NỘI DUNG :</b>
+        </p>
+
+        <ul>
+            <li><a href="#phan-1">Bài toán chuẩn hóa tên 1</a></li>
+            <li><a href="#phan-2">Bài toán chuẩn hóa tên 2</a></li>
+            <li><a href="#phan-3">Bài toán cấp email theo tên</a></li>
+        </ul>
+
+        <img src="https://cdn-blog.28tech.com.vn/media/c%20tutorial/chuoi_ky_tu/b%C3%A0i%20to%C3%A1n%20%20chu%E1%BA%A9n%20h%C3%B3a%20t%C3%AAn%2Cemail.png" width="500" alt="Ảnh">
+        </section>
+
+        <hr>
+
+        <section class="content">
+            <h2 id="phan-1">1. Bài toán chuẩn hóa tên 1</h2>
+
+        <p>
+            Bài toán này sẽ yêu cầu bạn chuẩn hóa tên bằng cách loại bỏ dấu cách thừa giữa các từ và viết hoa chữ cái đầu của từng từ.
+        </p>
+
+        <p>
+            Ví dụ <code class="lang-c">"   nguYEN   Thuy  linH" => "Nguyen Thuy Linh"</code>
+        </p>
+
+        <p>
+            Phương pháp làm những <strong>bài toán chuẩn hóa tên</strong> đó là bạn nên <mark>tách từng từ ra sau đó xử lý từng từ và gộp lại</mark>
+        </p>
+
+        <p>
+            <b>Code:</b>
+        </p>
+
+        <!-- Code C -->
+        <pre>
+            <code class="language-c">
+        #include &lt;stdio.h&gt;
+        #include &lt;string.h&gt;
+        #include &lt;stdlib.h&gt;
+        #include &lt;ctype.h&gt;
+
+        //H&agrave;m n&agrave;y chu&#x1EA9;n h&oacute;a t&#x1EEB;ng t&#x1EEB; : liNH =&gt; Linh
+        char* chuanHoaTu(char *s){
+            s[0] = toupper(s[0]);
+            for(int i = 1; i &lt; strlen(s); i++){
+                s[i] = tolower(s[i]);
+            }
+            return s;
+        }
+
+        int main(){
+            char s[1000] = &quot;NGuyeN   vAN   hOANg  &quot;;
+            char res[1000] = &quot;&quot;;
+            char *token = strtok(s, &quot; &quot;);
+            while(token != NULL){
+                //n&#x1ED1;i t&#x1EEB; v&agrave;o chu&#x1ED7;i k&#x1EBF;t qu&#x1EA3; res
+                strcat(res, chuanHoaTu(token));
+                token = strtok(NULL, &quot; &quot;);
+                //N&#x1EBF;u ch&#x1B0;a ph&#x1EA3;i t&#x1EEB; cu&#x1ED1;i th&igrave; n&#x1ED1;i th&ecirc;m d&#x1EA5;u c&aacute;ch
+                if(token != NULL){
+                    strcat(res, &quot; &quot;);
+                }
+            }
+            printf(&quot;Ten sau khi chuan hoa:\n&quot;);
+            printf(&quot;%s\n&quot;, res);
+            return 0;
+        }
+            </code>
+        </pre>
+
+        <p>
+            Output :
+        </p>
+
+            <pre>
+                <samp>
+                    Ten sau khi chuan hoa:
+                    Nguyen Van Hoang
+                </samp>
+            </pre>
+
+        
+
+        <p>
+            Bạn có thể in ra luôn token tách được sau khi chuẩn hóa hoặc lưu vào xâu kết quả như mình rồi in ra sau.
+        </p>
+
+        <p>
+            Code dưới đây mình sẽ viết 1 hàm trả về chuỗi tên chuẩn hóa, các bạn có thể lựa chọn cách mà mình thấy phù hợp
+        </p>
+
+        <p>
+            <b>Code :</b>
+        </p>
+
+        <!-- Code C -->
+        <pre>
+            <code class="language-c">
+            #include &lt;stdio.h&gt;
+            #include &lt;string.h&gt;
+            #include &lt;stdlib.h&gt;
+            #include &lt;ctype.h&gt;
+
+            //H&agrave;m n&agrave;y chu&#x1EA9;n h&oacute;a t&#x1EEB;ng t&#x1EEB; : liNH =&gt; Linh
+            char* chuanHoaTu(char *s){
+                s[0] = toupper(s[0]);
+                for(int i = 1; i &lt; strlen(s); i++){
+                    s[i] = tolower(s[i]);
+                }
+                return s;
+            }
+
+            char *chuanHoaTen(char *s, char *res){
+                char *token = strtok(s, &quot; &quot;);
+                while(token != NULL){
+                    //n&#x1ED1;i t&#x1EEB; v&agrave;o chu&#x1ED7;i k&#x1EBF;t qu&#x1EA3; res
+                    strcat(res, chuanHoaTu(token));
+                    token = strtok(NULL, &quot; &quot;);
+                    //N&#x1EBF;u ch&#x1B0;a ph&#x1EA3;i t&#x1EEB; cu&#x1ED1;i th&igrave; n&#x1ED1;i th&ecirc;m d&#x1EA5;u c&aacute;ch
+                    if(token != NULL){
+                        strcat(res, &quot; &quot;);
+                    }
+                }
+                return res;
+            }
+
+            int main(){
+                char s[1000] = &quot;NGuyeN   vAN   hOANg  &quot;;
+                char res[1000] = &quot;&quot;;
+                printf(&quot;Ten sau khi chuan hoa:\n&quot;);
+                char *name = chuanHoaTen(s, res);
+                printf(&quot;%s\n&quot;, name); // res &lt;=&gt; name
+                return 0;
+            }
+            </code>
+        </pre>
+
+        <p>
+            Output :
+        </p>
+
+            <pre>
+                <samp>
+                    Ten sau khi chuan hoa:
+                    Nguyen Van Hoang
+                </samp>
+            </pre>
+
+        <hr>
+
+        <h2 id="phan-2">2. Bài toán chuẩn hóa tên 2</h2>
+
+        <p>
+            Bài toán này yêu cần bạn in ra tên trước rồi mới tới họ và đệm 
+        </p>
+
+        <p>
+            Ví dụ: <code class="lang-c">"tran    VaN  TeCH28" => "Tech28 Tran Van"</code>
+        </p>
+
+        <p>
+            Trong trường hợp <strong>bài toán chuẩn hóa tên</strong> yêu cầu bạn in ra thứ tự từ không như ban đầu thì ta nên <mark>lưu lại các từ vào mảng 2 chiều</mark> , điều này sẽ thuận tiện hơn cho việc in ra từ nào trước từ sao sau.
+        </p>
+
+        <p>
+            <b>Code :</b>
+        </p>
+
+        <!-- Code C -->
+        <pre>
+            <code class="lang-c">
+            #include &lt;stdio.h&gt;
+            #include &lt;string.h&gt;
+            #include &lt;stdlib.h&gt;
+            #include &lt;ctype.h&gt;
+
+            //H&agrave;m n&agrave;y chu&#x1EA9;n h&oacute;a t&#x1EEB;ng t&#x1EEB; : liNH =&gt; Linh
+            char* chuanHoaTu(char *s){
+                s[0] = toupper(s[0]);
+                for(int i = 1; i &lt; strlen(s); i++){
+                    s[i] = tolower(s[i]);
+                }
+                return s;
+            }
+
+            int main(){
+                char s[1000] = &quot;NGuyeN   vAN   hOANg  &quot;;
+                char a[100][50];
+                int n = 0; // &dstrok;&#x1EBF;m s&#x1ED1; t&#x1EEB;
+                char *token = strtok(s, &quot; &quot;);
+                while(token != NULL){
+                    strcpy(a[n], chuanHoaTu(token));
+                    ++n;
+                    token = strtok(NULL, &quot; &quot;);
+                }
+                printf(&quot;Ten sau khi chuan hoa :\n&quot;);
+                //In ra t&ecirc;n tr&#x1B0;&#x1EDB;c
+                printf(&quot;%s &quot;, a[n - 1]); //t&#x1EEB; cu&#x1ED1;i c&ugrave;ng &#x1EDF; d&ograve;ng n - 1
+                for(int i = 0; i &lt; n - 1; i++){
+                    printf(&quot;%s&quot;, a[i]);
+                    if(i != n - 2){
+                        printf(&quot; &quot;);
+                    }
+                }
+                return 0;
+            }
+            </code>
+        </pre>
+
+        <p>
+            Output :
+        </p>
+
+        <pre>
+            <samp>
+                Ten sau khi chuan hoa :
+                Hoang Nguyen Van
+            </samp>
+        </pre>
+
+        <p>
+            Bằng cách lưu từng từ trong tên vào mảng thì bạn có thể chủ động trong việc in ra theo thứ tự mà đề bài yêu cầu.
+        </p>
+
+        <hr>
+
+        <h2 id="phan-3">3. Bài toán cấp email theo tên</h2>
+
+        <p>
+            Bài toán cấp email thường gặp khi bạn cần cung cấp email cho các nhân viên trong 1 công ty hay các sinh viên trong trường đại học dựa trên tên của họ. 
+        </p>
+
+        <p>
+            Ví dụ tên "Nguyen Van Nam" sẽ được cấp email là "namnv@28tech.com.vn" chẳng hạn
+        </p>
+
+        <p>
+            Tên email được cấp bằng cách lấy tên và ghép với các chữ cái đầu tiên của họ và đệm.
+        </p>
+
+        <p>
+            Có nhiều kiểu cấp email khác nhau nhưng bạn có thể làm tương tự kiểu chuẩn email này.
+        </p>
+
+        <p>
+            <b>Code :</b>
+        </p>
+
+        <pre>
+            <code class="lang-c">
+            #include &lt;stdio.h&gt;
+            #include &lt;string.h&gt;
+            #include &lt;stdlib.h&gt;
+            #include &lt;ctype.h&gt;
+
+            int main(){
+                char s[1000] = &quot;NGuyeN   vAN   NaM  &quot;;
+                for(int i = 0; i &lt; strlen(s); i++){
+                    s[i] = tolower(s[i]);
+                }
+                char a[100][50];
+                int n = 0; // &dstrok;&#x1EBF;m s&#x1ED1; t&#x1EEB;
+                char *token = strtok(s, &quot; &quot;);
+                while(token != NULL){
+                    strcpy(a[n], token);
+                    ++n;
+                    token = strtok(NULL, &quot; &quot;);
+                }
+                printf(&quot;Email duoc cap :\n&quot;);
+                printf(&quot;%s&quot;, a[n - 1]);
+                for(int i = 0; i &lt; n - 1; i++){
+                    printf(&quot;%c&quot;, a[i][0]);
+                }
+                printf(&quot;@28tech.com.vn\n&quot;);
+                return 0;
+            }
+            </code>
+        </pre>
+
+        <p>
+            Output :
+        </p>
+
+        <pre>
+            <samp>
+                Email duoc cap :
+                namnv@28tech.com.vn
+            </samp>
+        </pre>
+        </section>
+        
+    <hr>
+
+    <section class="infor-author">
+        <h2>Thông tin tác giả</h2>
+        <img src="/Homework-F8-fullstack/Day6/my-portfolio/images/Screenshot 2026-05-08 112200.png" width="200" alt="ảnh tác giả">
+        <p>
+            <b>Tên tác giả:</b> Trần Quốc Khánh
+        </p>
+
+        <p>
+            Chuyên gia hướng dẫn lập trình C với phong cách mã nguồn tối ưu và tư duy logic sắc bén. Luôn nỗ lực biến những thuật toán phức tạp thành các bài giải dễ hiểu cho cộng đồng sinh viên công nghệ.
+        </p>
+
+        <address>
+            <b>Họ và tên:</b> Trần Quốc Khánh <br>
+            <b>Email:</b> khanh.tran.dev@gmail.com <br>
+            <b>Điện thoại:</b> 098 765 4321 <br>
+            <b>Địa chỉ:</b> Khu Công nghệ phần mềm, ĐHQG TP.HCM, Linh Trung, Thủ Đức.
+        </address>
+    </section>
+
+    <hr>
+
+        <footer>
+        <p>
+            <strong>
+                <sup>©</sup>2026 Bản quyền thuộc về Trần Quốc Khánh. All rights reserved.
+            </strong>
+        </p>
+
+        <a href="">
+            <span class="mdi mdi-facebook">Tran Quoc Khanh</span>
+        </a>
+
+        <br>
+
+        <a href="">
+            <span class="mdi mdi-instagram">Tran Quoc Khanh</span>
+        </a>
+
+        <br>
+
+        <a href="">
+        <span class="mdi mdi-twitter">Tran Quoc Khanh</span>
+        </a>
+
+        <br>
+
+        <a href="">
+            <span class="mdi mdi-github">Tran Quoc Khanh</span>
+        </a>
+
+        <br>
+
+        <a href="">
+            <span class="mdi mdi-linkedin">Tran Quoc Khanh</span>
+        </a>
+
+        <br>
+
+        <a href="#top">Lên đầu trang</a>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+</body>
+</html>

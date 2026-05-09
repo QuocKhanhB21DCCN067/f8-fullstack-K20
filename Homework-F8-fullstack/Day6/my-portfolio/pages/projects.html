@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <img src="/Homework-F8-fullstack/Day6/my-portfolio/images/Khánh portfolio-logo.png" width="150" alt="logo">
+      <div class="navigation-menu">
+        <ul class="menu">
+          <li>
+            <a href="/..index.html"><i class="mdi mdi-home">Home</i></a>
+          </li>
+          <li>
+            <a href="about.html"><i class="mdi mdi-account">About</i></a>
+          </li>
+          <li>
+            <a href="skills.html"
+              ><i class="mdi mdi-lightbulb">Skills</i></a
+            >
+          </li>
+          <li>
+            <a href="projects.html"
+              ><i class="mdi mdi-folder">Projects</i></a
+            >
+          </li>
+          <li>
+            <a href="blog.html"><i class="mdi mdi-post">Blog</i></a>
+          </li>
+          <li>
+            <a href="contact.html"
+              ><i class="mdi mdi-email">Contact</i></a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <hr/>
+
+    <section class="projects">
+      <h2>Website</h2>
+
+      <div class="project-1">
+
+        <h3>Dự án: Hệ thống quản lý và Đặt chỗ phòng Gym (Zenith FitSystem)</h3>
+        <img
+          src="/Homework-F8-fullstack/Day6/my-portfolio/images/Project-1.png" width="500"
+          alt="ảnh project-1"
+        />
+
+        <p>
+          <b>Mô tả chi tiết:</b>
+          Đây là một hệ thống quản lý toàn diện cho các trung tâm thể hình, tập
+          trung vào việc tối ưu hóa trải nghiệm khách hàng và quản lý nguồn lực.
+          Dự án bắt đầu từ việc phân tích nghiệp vụ, vẽ sơ đồ Use Case và
+          Sequence Diagram để mô tả luồng đăng ký gói tập, đặt lịch hẹn với huấn
+          luyện viên cá nhân và thanh toán trực tuyến. Hệ thống được xây dựng để
+          giải quyết bài toán chồng chéo lịch tập và quản lý thẻ thành viên
+          thông qua mã QR. Phía quản trị viên (Admin) có một bảng điều khiển
+          (Dashboard) trực quan để theo dõi doanh thu theo tháng và tần suất sử
+          dụng phòng tập của hội viên, giúp đưa ra các quyết định kinh doanh
+          chính xác.
+        </p>
+
+        <p>
+          <b>Công nghệ sử dụng:</b>
+          <code
+            >Python (Pandas, BeautifulSoup), SQL Server, Power BI, Flask.</code
+          >
+        </p>
+
+        <p>
+          <b>Tính năng chính:</b>
+        </p>
+
+        <ul>
+          <li>Đặt lịch tập thời gian thực và tự động gửi email xác nhận.</li>
+          <li>
+            <mark>Hệ thống thanh toán tích hợp qua Stripe hoặc PayPal.</mark>
+          </li>
+          <li>
+            Phân tích dữ liệu người dùng và biểu diễn biểu đồ doanh thu cho quản
+            lý.
+          </li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <div class="project-2">
+        <h3>Dự án: Nền tảng Tổng hợp Dữ liệu Nông sản (AgriData Lake)</h3>
+
+        <img src="https://i.pinimg.com/736x/13/4e/ba/134eba17c1d6e8d6d01eb8d6617902e2.jpg" width="500" alt="project-2">
+
+        <p>
+            <b>Mô tả chi tiết:</b> 
+            Dự án này mô phỏng một công cụ thu thập và xử lý dữ liệu từ nhiều nguồn khác nhau (Excel, SQL, và Public APIs) về giá cả và sản lượng nông sản. Mục tiêu là xây dựng một "Data Lake" tập trung để giúp các nhà bán lẻ theo dõi biến động thị trường một cách nhanh chóng thay vì phải kiểm tra thủ công từng nguồn rời rạc.
+            Điểm nhấn của dự án nằm ở quy trình ETL (Extract - Transform - Load). Dữ liệu sau khi thu thập được làm sạch, loại bỏ các bản ghi trùng lặp hoặc lỗi (RTE/Logic errors) và chuẩn hóa thành một định dạng duy nhất. Hệ thống cũng cung cấp một giao diện web để người dùng tra cứu giá cả theo khu vực địa lý.
+        </p>
+
+        <p>
+            <b>Công nghệ sử dụng:</b>
+            <code>Python (Pandas, BeautifulSoup), SQL Server, Power BI, Flask.</code>
+        </p>
+
+        <p>
+            <b>Tính năng chính:</b>
+        </p>
+
+        <ul>
+            <li>Tự động hóa việc trích xuất dữ liệu định kỳ từ file Excel và các website giá thị trường.</li>
+            <li><mark>Công cụ lọc và tìm kiếm nông sản theo vùng miền, chủng loại.</mark></li>
+            <li>Báo cáo Dashboard trực quan hóa xu hướng tăng/giảm giá trong tháng , quý , năm.</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <div class="project-3">
+        <h3>Dự án: Hệ thống Gợi ý Âm nhạc dựa trên Hành vi (EchoMind AI)</h3>
+        <img src="https://i.pinimg.com/736x/24/27/a1/2427a10707cd569a6eb3dd0badbb43e9.jpg" width="300" height="300" alt="project-3">
+
+        <p>
+            <b>Mô tả chi tiết:</b>
+            EchoMind là một ứng dụng web nghe nhạc tích hợp thuật toán gợi ý thông minh. Thay vì chỉ phát nhạc ngẫu nhiên, hệ thống sử dụng thuật toán Lọc cộng tác (Collaborative Filtering) để đề xuất các bài hát dựa trên sở thích và lịch sử nghe nhạc của những người dùng có hành vi tương tự.
+            Phần Frontend được tối ưu hóa bằng React để tạo trải nghiệm mượt mà, trong khi Backend xử lý khối lượng lớn dữ liệu tương tác từ người dùng. Dự án này thể hiện kỹ năng xử lý cấu trúc dữ liệu và giải thuật (DFS/BFS trong việc tìm kiếm các node liên quan trong đồ thị âm nhạc) để tối ưu tốc độ phản hồi của hệ thống gợi ý.
+        </p>
+
+        <p>
+            <b>Công nghệ sử dụng:</b>
+            <code>React, Python (Scikit-learn), FastAPI, PostgreSQL, Docker.</code>
+        </p>
+
+        <p>
+            <b>Tính năng chính:</b>
+        </p>
+
+        <ul>
+            <li>Gợi ý danh sách phát cá nhân hóa (Daily Mix) cho từng người dùng.</li>
+            <li><mark>Tìm kiếm bài hát với tốc độ cao nhờ tối ưu hóa chỉ mục (Indexing) trong cơ sở dữ liệu.</mark></li>
+            <li>Tính năng nghe nhạc trực tuyến với trình phát nhạc tùy chỉnh.</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <div class="project-4">
+        <h3>Dự án: Cổng dịch vụ Công trực tuyến (Cloud-Native E-Gov Portal)</h3>
+        <img src="https://i.pinimg.com/736x/fa/eb/83/faeb83b8ed3ef43095b1745f9803c3ea.jpg" width="500" height="200" alt="project-4">
+
+        <p>
+            <b>Mô tả chi tiết:</b>
+            Dự án mô phỏng một cổng dịch vụ công giúp người dân đăng ký các loại giấy tờ hành chính trực tuyến. Dự án tập trung vào tính bảo mật cao và khả năng chịu tải lớn bằng cách sử dụng kiến trúc Microservices và triển khai hoàn toàn trên hạ tầng đám mây AWS.
+            Hệ thống được thiết kế để xử lý hàng ngàn yêu cầu cùng lúc mà không gây tắc nghẽn nhờ cơ chế tự động mở rộng (Auto-scaling). Quy trình triển khai được tự động hóa hoàn toàn qua GitHub Actions, đảm bảo mọi thay đổi về mã nguồn đều được kiểm thử (Unit Test) và đóng gói (Docker) trước khi đưa lên môi trường thực tế.
+        </p>
+
+        <p>
+            <b>Công nghệ sử dụng:</b>
+            <code>AWS (S3, Lambda, EC2), Docker, GitHub Actions, TypeScript, Redis.</code>
+        </p>
+
+        <p>
+            <b>Tính năng chính:</b>
+        </p>
+
+        <ul>
+            <li>Tải lên và lưu trữ hồ sơ bảo mật trên AWS S3 với cơ chế mã hóa.</li>
+            <li><mark>Hệ thống thông báo trạng thái hồ sơ qua tin nhắn/email theo thời gian thực.</mark></li>
+            <li>Tự động sao lưu dữ liệu và khôi phục sau sự cố (Disaster Recovery).</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <footer>
+        <p>
+            <strong>
+                <sup>©</sup>2026 Bản quyền thuộc về Trần Quốc Khánh. All rights reserved.
+            </strong>
+        </p>
+
+        <a href="">
+            <span class="mdi mdi-facebook">Tran Quoc Khanh</span>
+        </a>
+
+        <br>
+
+        <a href="">
+            <span class="mdi mdi-instagram">Tran Quoc Khanh</span>
+        </a>
+
+        <br>
+
+        <a href="">
+        <span class="mdi mdi-twitter">Tran Quoc Khanh</span>
+        </a>
+
+        <br>
+
+        <a href="">
+            <span class="mdi mdi-github">Tran Quoc Khanh</span>
+        </a>
+
+        <br>
+
+        <a href="">
+            <span class="mdi mdi-linkedin">Tran Quoc Khanh</span>
+        </a>
+
+        <br>
+
+        <a href="#top">Lên đầu trang</a>
+    </footer>
+  </body>
+</html>
