@@ -1,0 +1,30 @@
+/* Khung lớn có viền đỏ */
+.outer-container {
+  border: 2px solid red;     /* Viền đỏ như trong image_9f287b.png */
+  height: 300px;             /* Chiều cao tùy ý */
+  display: flex;             /* Sử dụng Flexbox để căn giữa */
+  justify-content: center;   /* Căn giữa theo chiều ngang */
+  align-items: center;       /* Căn giữa theo chiều dọc */
+}
+
+/* Cột chứa các ô vuông */
+.inner-column {
+  display: flex;
+  flex-direction: column;    /* Xếp chồng các ô theo chiều dọc */
+  gap: 0;                    /* Để các ô sát khít nhau */
+}
+
+/* Từng ô vuông đơn lẻ */
+.box {
+  width: 60px;
+  height: 60px;
+  background-color: #5d83b3;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  /* Viền trắng mỏng giữa các ô */
+  border: 0.5px solid rgba(255, 255, 255, 0.3); 
+}
