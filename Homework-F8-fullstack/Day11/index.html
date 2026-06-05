@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My web</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive-tablet.css">
+    <link rel="stylesheet" href="responsive-mobile.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap" rel="stylesheet">
@@ -21,9 +25,47 @@
             <a href="!#">Link 2</a>
             <a href="!#">Link 3</a>
         </div>
+
+        <label for="hambuger-menu">
+            <span class="mdi mdi-menu"></span>
+        </label>
+
     </header>
 
     <section class="container">
+        
+        <input type="checkbox" id="hambuger-menu" hidden>
+
+        <div class="overlay">
+        </div>
+
+        <div class="menu">
+            <label for="hambuger-menu">
+                <span class="mdi mdi-close"></span>
+            </label>
+
+            <ul class="menu__list">
+                <li>
+                    <div class="menu__list-1--separate">
+                        <a href="">link 1</a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="menu__list-2--separate">
+                        <a href="">link 2</a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="menu__list-3--separate">
+                        <a href="">link 3</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        
         
         <div class="container__content">
             <div class="content">
@@ -37,12 +79,43 @@
             </div>
 
             <div class="card">
-                <div class="card-1">1</div>
-                <div class="card-2">2</div>
-                <div class="card-3">3</div>
-                <div class="card-4">4</div>
-                <div class="card-5">5</div>
+                <div class="card__card-1">
+                    <h2 class="card-1__title">Card One</h2>
+                    <p class="card-1__desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, sunt?
+                    </p>
+                </div>
+
+                <div class="card__card-2">
+                    <h2 class="card-2__title">Card Two</h2>
+                    <p class="card-2__desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, sunt?
+                    </p>
+                </div>
+
+                    <div class="card__card-3">
+                        <h2 class="card-3__title">Card Three</h2>
+                        <p class="card-3__desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, sunt?
+                        </p>
+                </div>
+
+                <div class="card__card-4">
+                    <h2 class="card-4__title">Card Four</h2>
+                    <p class="card-4__desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, sunt?
+                    </p>
+                </div>
+
+                <div class="card__card-5">
+                    <h2 class="card-5__title">Card Five</h2>
+                    <p class="card-5__desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, sunt?
+                    </p>
+                </div>
+
             </div>
+
         </div>
 
         <div class="container__sidebar">
@@ -51,7 +124,6 @@
             </p>
         </div>
 
-        
     </section>
 </body>
 </html>
