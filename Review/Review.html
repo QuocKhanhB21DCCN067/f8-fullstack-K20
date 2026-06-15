@@ -1,67 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        /* 1. ẨN RADIO MẶC ĐỊNH */
-.input-box input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-/* 2. TRẠNG THÁI CHƯA CHỌN: Chỉ có border màu tím, bên trong rỗng */
-.custom-radio {
-  height: 20px;
-  width: 20px;
-  border: 2px solid #6c2bd9; /* Viền màu tím */
-  background-color: transparent; /* Bên trong suốt (rỗng) */
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box; /* Đảm bảo kích thước chuẩn bao gồm cả viền */
-  transition: all 0.2s ease-in-out;
-}
-
-/* 3. TRẠNG THÁI ĐƯỢC CHỌN: Đặc hết màu tím */
-.input-box input[type="radio"]:checked ~ .custom-radio {
-  background-color: #6c2bd9; /* Đổ đầy màu tím vào bên trong */
-  border-color: #6c2bd9;
-}
-
-/* (Tùy chọn) Nếu bạn muốn có thêm chấm trắng nhỏ ở giữa khi chọn như ảnh cũ, 
-   thì giữ lại đoạn này. Còn nếu muốn TÍM TOÀN BỘ hoàn toàn thì xóa đoạn này đi nhé */
-.input-box input[type="radio"]:checked ~ .custom-radio::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #ffffff; 
-  transform: translate(-50%, -50%);
-}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-    <div class="form-container">
-  
-  <label class="input-box">
-    <input type="radio" name="contact-method" value="phone" checked>
-    <i class="icon-phone">📞</i> <input type="text" placeholder="Enter Your Number" class="text-input">
-    <span class="custom-radio"></span>
-  </label>
-
-  <label class="input-box">
-    <input type="radio" name="contact-method" value="email">
-    <i class="icon-email">✉️</i> <input type="text" placeholder="Enter Your Email" class="text-input">
-    <span class="custom-radio"></span>
-  </label>
-
-</div>
+  <h1>Document</h1>
+  <script src="scripts.js"></script>
 </body>
 </html>
