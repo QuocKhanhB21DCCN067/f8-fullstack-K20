@@ -10,10 +10,50 @@ function analyzeClass(scores) {
         }
     }
 
+    let xuatSac = 0
+    for (score of scores) {
+        if (score >= 9 && score <= 10) {
+            xuatSac++
+        }
+    }
+
+    let gioi = 0
+    for (score of scores) {
+        if (score >= 8 && score < 9) {
+            gioi++
+        }
+    }
+
+    let kha = 0
+    for (score of scores) {
+        if (score >= 6.5 && score < 8) {
+            kha++
+        }
+    }
+
+    let trungBinh = 0
+    for (score of scores) {
+        if (score >= 5 && score < 6.5) {
+            trungBinh++
+        }
+    }
+
+    let yeu = 0
+    for (score of scores) {
+        if (score < 5 && score >= 0) {
+            yeu++
+        }
+    }
+
 
     return {
         notValid,
-        valid
+        valid, 
+        xuatSac, 
+        gioi,
+        kha, 
+        trungBinh,
+        yeu
     }
 }
 
@@ -22,9 +62,11 @@ const result = analyzeClass(arr)
 
 console.log(`Số điểm không hợp lệ: ${result.notValid}`);
 console.log(`Số học sinh hợp lệ: ${result.valid}`);
-
-
-
+console.log(`Xuất sắc: ${result.xuatSac}`);
+console.log(`Giỏi: ${result.gioi}`);
+console.log(`Khá: ${result.kha}`);
+console.log(`Trung bình: ${result.trungBinh}`);
+console.log(`Yếu: ${result.yeu}`);
 
 
 
