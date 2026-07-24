@@ -1,6 +1,3 @@
-// const date = new Date("2026-05-10T10:10:30")
-
-console.log(Date.parse("1970-01-01T00:00:00Z"));
-console.log(Date.now());
-
-
+const entries = [['name', 'Alice'], ['age', 30], ['city', 'HN']];
+const obj = Object.fromEntries(entries);
+console.log(obj.name, obj.age);
