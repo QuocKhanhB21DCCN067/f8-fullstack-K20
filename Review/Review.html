@@ -4,11 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-  <button class="btn" id="btnOpen">open</button>
-  <button class="btn" id="btnDelete">Delete</button>
+  <div class="tabs">
+  <button class="tab active">Tab 1</button>
+  <button class="tab">Tab 2</button>
+  <button class="tab">Tab 3</button>
+</div>
+
+<div class="contents">
+  <div class="content active" id="content-1">
+    Thực hành
+  </div>
+
+  <div class="content" id="content-2">
+    Kiểm tra
+  </div>
+
+  <div class="content" id="content-3">
+    Kết quả
+  </div>
+</div> 
 
 
   <script src="scripts.js"></script>
